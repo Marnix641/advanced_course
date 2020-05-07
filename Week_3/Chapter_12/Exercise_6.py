@@ -1,18 +1,20 @@
 
 def readposint():
+    i = 0
     for _ in range(10):
-        i = 0
         try:
             i = int(input("Please fill in a positive integer "))
             if i < 0:
-                raise ValueError("(0) is not a valid integer",format(i))
-            elif i == "x":
+               print("It is not a valid integer")
+            elif i == 0:
                 print("You have ended the proces")
                 break
             print(i)
         except ValueError:
             print("You did not enter a positive integer, please fill in a positive integer")
 
+    return i
 
-readposint()
+if __name__ == "__main__":
+    print(readposint())
 

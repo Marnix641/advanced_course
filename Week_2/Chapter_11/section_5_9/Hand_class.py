@@ -17,5 +17,6 @@ class Hand(Deck):
             s += " contains\n"
         return s + Deck.__str__(self)
 
-
+    def add(self, card):
+        self.cards.append(card)
 

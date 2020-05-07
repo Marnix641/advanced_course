@@ -30,12 +30,8 @@ class OldMaidGame(Cardgame):
         self.print_hands()
 
     def print_hands(self):
-        s = "Hand " + self.name
-        if self.is_empty():
-            s += " is empty\n"
-        else:
-            s += " contains\n"
-        return s + Deck.__str__(self)
+        for hand in self.hands:
+            print(hand)
 
     def remove_all_matches(self):
         count = 0
@@ -60,3 +56,7 @@ class OldMaidGame(Cardgame):
             neighbor = (i + next) % num_hands
             if not self.hands[neighbor].is_empty():
                 return neighbor
+
+if __name__ == "__main__":
+    game = OldMaidGame()
+    game.play(["Marnix", "Bastiaan"])

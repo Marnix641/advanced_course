@@ -11,6 +11,6 @@ class OldMaidHand(Hand):
             if match in self.cards:
                 self.cards.remove(card)
                 self.cards.remove(match)
-                print("Hand (0): (1) matches (2)".format(self.name, card, match))
+                print("Hand {}: {} matches {}".format(self.name, card, match))
                 count += 1
         return count

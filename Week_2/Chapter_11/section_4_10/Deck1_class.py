@@ -42,7 +42,7 @@ class Deck:
             hand = hands[i % num_hands]
             hand.add(card)
 
-    
+
 
 
 

@@ -18,4 +18,3 @@ class FolderDetails():
             return None
 
 
-

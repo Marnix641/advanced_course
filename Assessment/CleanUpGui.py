@@ -9,10 +9,11 @@ from Assessment.FolderDetails import FolderDetails
 
 class CleanUpGui(Frame):
 
-    def __init__(self, master=None):
+    def __init__(self, path, master=None):
         Frame.__init__(self, master=master)
         self.master.title("Clean up")
         self.pack(fill=BOTH, expand=1)
+        self.path = path
 
         # Setup variables
         self.folder_details = None
@@ -22,20 +23,26 @@ class CleanUpGui(Frame):
         # Setup GUI elements
         self.current_file_name = Label(self)
         self.current_file_size = Label(self)
+        self.current_file_first_lines = Label(self)
+        self.current_file_image = Label(self)
         self.current_folder_name = Label(self)
 
-        self.delete_file_button = Button(self, text="Delete", command=self.delete_current_file)
-        self.skip_file_button = Button(self, text="Next", command=self.load_next_file)
+        self.delete_file_button = Button(self, text="Delete file", command=self.delete_current_file)
+        self.skip_file_button = Button(self, text="Next file", command=self.load_next_file)
         self.next_folder_button = Button(self, text="Select folder", command=self.select_folder)
+        self.save_file_button = Button(self, text="Save file", command=self)
 
         # Place GUI elements on Canvas
         self.current_file_name.pack()
         self.current_file_size.pack()
+        self.current_file_first_lines.pack()
+        self.current_file_image.pack()
         self.current_folder_name.pack()
 
         self.delete_file_button.pack()
         self.skip_file_button.pack()
         self.next_folder_button.pack()
+        self.save_file_button.pack()
 
     # process buttons
 
@@ -56,6 +63,12 @@ class CleanUpGui(Frame):
             else:
                 self.current_file = FileDetails(self, self.folder_details, "")
             self.current_file.display_details()
+
+    def save_files(self):
+        with open("saved_files", "a") as myfile:
+            myfile.write("%s\n" % self.path)
+
+
 
     # startup
 

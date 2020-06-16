@@ -24,7 +24,8 @@ class CleanUpGui(Frame):
         self.current_file_name = Label(self)
         self.current_file_size = Label(self)
         self.current_file_first_lines = Label(self)
-        self.current_file_image = Label(self)
+        self.current_file_img = Label(self)
+        self.current_file_label_image = Label(self)
         self.current_folder_name = Label(self)
 
         self.delete_file_button = Button(self, text="Delete file", command=self.delete_current_file)
@@ -36,7 +37,8 @@ class CleanUpGui(Frame):
         self.current_file_name.pack()
         self.current_file_size.pack()
         self.current_file_first_lines.pack()
-        self.current_file_image.pack()
+        self.current_file_img.pack()
+        self.current_file_label_image.pack()
         self.current_folder_name.pack()
 
         self.delete_file_button.pack()
@@ -64,9 +66,8 @@ class CleanUpGui(Frame):
                 self.current_file = FileDetails(self, self.folder_details, "")
             self.current_file.display_details()
 
-    def save_files(self):
-        with open("saved_files", "a") as myfile:
-            myfile.write("%s\n" % self.path)
+    #def save_files_command(self):
+        #save_files()
 
 
 

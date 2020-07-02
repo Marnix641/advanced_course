@@ -73,6 +73,7 @@ class CleanUpGui(Frame):
 
     # startup
 
+
     def select_folder(self):
         folder_path = filedialog.askdirectory()
         self.folder_details = FolderDetails(folder_path)

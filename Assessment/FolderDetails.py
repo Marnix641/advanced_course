@@ -10,7 +10,7 @@ class FolderDetails():
             # only add files not sub folders
             self.files_to_check = [f for f in listdir(path) if isfile(join(path, f))]
 
-    def save_files(self, file_name):
+    def save_file(self, file_name):
         if file_name:
             never_delete = open(join(self.path, "saved_files"), "a")
             never_delete.write(file_name.path)

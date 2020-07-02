@@ -31,7 +31,7 @@ class CleanUpGui(Frame):
         self.delete_file_button = Button(self, text="Delete file", command=self.delete_current_file)
         self.skip_file_button = Button(self, text="Next file", command=self.load_next_file)
         self.next_folder_button = Button(self, text="Select folder", command=self.select_folder)
-        self.save_file_button = Button(self, text="Save file", command=self)
+        self.save_file_button = Button(self, text="Save file", command=self.never_delete_file)
 
         # Place GUI elements on Canvas
         self.current_file_name.pack()
@@ -69,7 +69,9 @@ class CleanUpGui(Frame):
     #def save_files_command(self):
         #save_files()
 
-
+    def never_delete_file(self):
+        self.folder_details.save_file(self.current_file)
+        self.load_next_file()
 
     # startup
 
